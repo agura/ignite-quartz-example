@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+        <property name="cacheConfiguration">
+            <list>
+                <bean class="org.apache.ignite.configuration.CacheConfiguration">
+                    <property name="cacheMode" value="PARTITIONED"/>
+                    <property name="atomicityMode" value="ATOMIC"/>
+                    <property name="copyOnRead" value="true"/>
+
+                    <property name="queryEntities">
+                        <list>
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_BLOB_TRIGGERSKey"/>
+                                <property name="valueType" value="QRTZ_BLOB_TRIGGERS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>triggerName</value>
+                                        <value>triggerGroup</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="triggerName" value="java.lang.String"/>
+                                        <entry key="triggerGroup" value="java.lang.String"/>
+                                        <entry key="blobData" value="java.lang.Object"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="triggerName" value="TRIGGER_NAME"/>
+                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
+                                        <entry key="blobData" value="BLOB_DATA"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="triggerName" value="true"/>
+                                                    <entry key="triggerGroup" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_CALENDARSKey"/>
+                                <property name="valueType" value="QRTZ_CALENDARS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>calendarName</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="calendarName" value="java.lang.String"/>
+                                        <entry key="calendar" value="java.lang.Object"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="calendarName" value="CALENDAR_NAME"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="calendarName" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_CRON_TRIGGERSKey"/>
+                                <property name="valueType" value="QRTZ_CRON_TRIGGERS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>triggerName</value>
+                                        <value>triggerGroup</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="triggerName" value="java.lang.String"/>
+                                        <entry key="triggerGroup" value="java.lang.String"/>
+                                        <entry key="cronExpression" value="java.lang.String"/>
+                                        <entry key="timeZoneId" value="java.lang.String"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="triggerName" value="TRIGGER_NAME"/>
+                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
+                                        <entry key="cronExpression" value="CRON_EXPRESSION"/>
+                                        <entry key="timeZoneId" value="TIME_ZONE_ID"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="triggerName" value="true"/>
+                                                    <entry key="triggerGroup" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_FIRED_TRIGGERSKey"/>
+                                <property name="valueType" value="QRTZ_FIRED_TRIGGERS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>entryId</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="entryId" value="java.lang.String"/>
+                                        <entry key="triggerName" value="java.lang.String"/>
+                                        <entry key="triggerGroup" value="java.lang.String"/>
+                                        <entry key="instanceName" value="java.lang.String"/>
+                                        <entry key="firedTime" value="java.lang.Long"/>
+                                        <entry key="schedTime" value="java.lang.Long"/>
+                                        <entry key="priority" value="java.lang.Integer"/>
+                                        <entry key="state" value="java.lang.String"/>
+                                        <entry key="jobName" value="java.lang.String"/>
+                                        <entry key="jobGroup" value="java.lang.String"/>
+                                        <entry key="isNonconcurrent" value="java.lang.String"/>
+                                        <entry key="requestsRecovery" value="java.lang.String"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="entryId" value="ENTRY_ID"/>
+                                        <entry key="triggerName" value="TRIGGER_NAME"/>
+                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
+                                        <entry key="instanceName" value="INSTANCE_NAME"/>
+                                        <entry key="firedTime" value="FIRED_TIME"/>
+                                        <entry key="schedTime" value="SCHED_TIME"/>
+                                        <entry key="jobName" value="JOB_NAME"/>
+                                        <entry key="jobGroup" value="JOB_GROUP"/>
+                                        <entry key="isNonconcurrent" value="IS_NONCONCURRENT"/>
+                                        <entry key="requestsRecovery" value="REQUESTS_RECOVERY"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="entryId" value="true"/>
+                                                    <entry key="schedName" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_JOB_DETAILSKey"/>
+                                <property name="valueType" value="QRTZ_JOB_DETAILS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>jobName</value>
+                                        <value>jobGroup</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="jobName" value="java.lang.String"/>
+                                        <entry key="jobGroup" value="java.lang.String"/>
+                                        <entry key="description" value="java.lang.String"/>
+                                        <entry key="jobClassName" value="java.lang.String"/>
+                                        <entry key="isDurable" value="java.lang.String"/>
+                                        <entry key="isNonconcurrent" value="java.lang.String"/>
+                                        <entry key="isUpdateData" value="java.lang.String"/>
+                                        <entry key="requestsRecovery" value="java.lang.String"/>
+                                        <entry key="jobData" value="java.lang.Object"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="jobName" value="JOB_NAME"/>
+                                        <entry key="jobGroup" value="JOB_GROUP"/>
+                                        <entry key="jobClassName" value="JOB_CLASS_NAME"/>
+                                        <entry key="isDurable" value="IS_DURABLE"/>
+                                        <entry key="isNonconcurrent" value="IS_NONCONCURRENT"/>
+                                        <entry key="isUpdateData" value="IS_UPDATE_DATA"/>
+                                        <entry key="requestsRecovery" value="REQUESTS_RECOVERY"/>
+                                        <entry key="jobData" value="JOB_DATA"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="jobGroup" value="true"/>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="jobName" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_LOCKSKey"/>
+                                <property name="valueType" value="QRTZ_LOCKS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>lockName</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="lockName" value="java.lang.String"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="lockName" value="LOCK_NAME"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="lockName" value="true"/>
+                                                    <entry key="schedName" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_PAUSED_TRIGGER_GRPSKey"/>
+                                <property name="valueType" value="QRTZ_PAUSED_TRIGGER_GRPS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>triggerGroup</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="triggerGroup" value="java.lang.String"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="triggerGroup" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_SCHEDULER_STATEKey"/>
+                                <property name="valueType" value="QRTZ_SCHEDULER_STATE"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>instanceName</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="instanceName" value="java.lang.String"/>
+                                        <entry key="lastCheckinTime" value="java.lang.Long"/>
+                                        <entry key="checkinInterval" value="java.lang.Long"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="instanceName" value="INSTANCE_NAME"/>
+                                        <entry key="lastCheckinTime" value="LAST_CHECKIN_TIME"/>
+                                        <entry key="checkinInterval" value="CHECKIN_INTERVAL"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="instanceName" value="true"/>
+                                                    <entry key="schedName" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_SIMPLE_TRIGGERSKey"/>
+                                <property name="valueType" value="QRTZ_SIMPLE_TRIGGERS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>triggerName</value>
+                                        <value>triggerGroup</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="triggerName" value="java.lang.String"/>
+                                        <entry key="triggerGroup" value="java.lang.String"/>
+                                        <entry key="repeatCount" value="java.lang.Long"/>
+                                        <entry key="repeatInterval" value="java.lang.Long"/>
+                                        <entry key="timesTriggered" value="java.lang.Long"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="triggerName" value="TRIGGER_NAME"/>
+                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
+                                        <entry key="repeatCount" value="REPEAT_COUNT"/>
+                                        <entry key="repeatInterval" value="REPEAT_INTERVAL"/>
+                                        <entry key="timesTriggered" value="TIMES_TRIGGERED"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="triggerName" value="true"/>
+                                                    <entry key="triggerGroup" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_SIMPROP_TRIGGERSKey"/>
+                                <property name="valueType" value="QRTZ_SIMPROP_TRIGGERS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>triggerName</value>
+                                        <value>triggerGroup</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="triggerName" value="java.lang.String"/>
+                                        <entry key="triggerGroup" value="java.lang.String"/>
+                                        <entry key="strProp1" value="java.lang.String"/>
+                                        <entry key="strProp2" value="java.lang.String"/>
+                                        <entry key="strProp3" value="java.lang.String"/>
+                                        <entry key="intProp1" value="java.lang.Integer"/>
+                                        <entry key="intProp2" value="java.lang.Integer"/>
+                                        <entry key="longProp1" value="java.lang.Long"/>
+                                        <entry key="longProp2" value="java.lang.Long"/>
+                                        <entry key="decProp1" value="java.math.BigDecimal"/>
+                                        <entry key="decProp2" value="java.math.BigDecimal"/>
+                                        <entry key="boolProp1" value="java.lang.String"/>
+                                        <entry key="boolProp2" value="java.lang.String"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="triggerName" value="TRIGGER_NAME"/>
+                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
+                                        <entry key="strProp1" value="STR_PROP_1"/>
+                                        <entry key="strProp2" value="STR_PROP_2"/>
+                                        <entry key="strProp3" value="STR_PROP_3"/>
+                                        <entry key="intProp1" value="INT_PROP_1"/>
+                                        <entry key="intProp2" value="INT_PROP_2"/>
+                                        <entry key="longProp1" value="LONG_PROP_1"/>
+                                        <entry key="longProp2" value="LONG_PROP_2"/>
+                                        <entry key="decProp1" value="DEC_PROP_1"/>
+                                        <entry key="decProp2" value="DEC_PROP_2"/>
+                                        <entry key="boolProp1" value="BOOL_PROP_1"/>
+                                        <entry key="boolProp2" value="BOOL_PROP_2"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="triggerName" value="true"/>
+                                                    <entry key="triggerGroup" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="QRTZ_TRIGGERSKey"/>
+                                <property name="valueType" value="QRTZ_TRIGGERS"/>
+
+                                <property name="keyFields">
+                                    <set>
+                                        <value>schedName</value>
+                                        <value>triggerName</value>
+                                        <value>triggerGroup</value>
+                                    </set>
+                                </property>
+
+                                <property name="fields">
+                                    <map>
+                                        <entry key="schedName" value="java.lang.String"/>
+                                        <entry key="triggerName" value="java.lang.String"/>
+                                        <entry key="triggerGroup" value="java.lang.String"/>
+                                        <entry key="jobName" value="java.lang.String"/>
+                                        <entry key="jobGroup" value="java.lang.String"/>
+                                        <entry key="description" value="java.lang.String"/>
+                                        <entry key="nextFireTime" value="java.lang.Long"/>
+                                        <entry key="prevFireTime" value="java.lang.Long"/>
+                                        <entry key="priority" value="java.lang.Integer"/>
+                                        <entry key="triggerState" value="java.lang.String"/>
+                                        <entry key="triggerType" value="java.lang.String"/>
+                                        <entry key="startTime" value="java.lang.Long"/>
+                                        <entry key="endTime" value="java.lang.Long"/>
+                                        <entry key="calendarName" value="java.lang.String"/>
+                                        <entry key="misfireInstr" value="java.lang.Short"/>
+                                        <entry key="jobData" value="java.lang.Object"/>
+                                    </map>
+                                </property>
+
+                                <property name="aliases">
+                                    <map>
+                                        <entry key="schedName" value="SCHED_NAME"/>
+                                        <entry key="triggerName" value="TRIGGER_NAME"/>
+                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
+                                        <entry key="jobName" value="JOB_NAME"/>
+                                        <entry key="jobGroup" value="JOB_GROUP"/>
+                                        <entry key="nextFireTime" value="NEXT_FIRE_TIME"/>
+                                        <entry key="prevFireTime" value="PREV_FIRE_TIME"/>
+                                        <entry key="triggerState" value="TRIGGER_STATE"/>
+                                        <entry key="triggerType" value="TRIGGER_TYPE"/>
+                                        <entry key="startTime" value="START_TIME"/>
+                                        <entry key="endTime" value="END_TIME"/>
+                                        <entry key="calendarName" value="CALENDAR_NAME"/>
+                                        <entry key="misfireInstr" value="MISFIRE_INSTR"/>
+                                        <entry key="jobData" value="JOB_DATA"/>
+                                    </map>
+                                </property>
+
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="PRIMARY"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="triggerName" value="true"/>
+                                                    <entry key="triggerGroup" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="SCHED_NAME"/>
+                                            <property name="indexType" value="SORTED"/>
+
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="jobGroup" value="true"/>
+                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="jobName" value="true"/>
+                                                </map>
+                                            </property>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+
+        <property name="discoverySpi">
+            <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+                <property name="ipFinder">
+                    <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
+                        <property name="addresses">
+                            <list>
+                                <value>127.0.0.1:47500..47509</value>
+                            </list>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>
