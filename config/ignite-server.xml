@@ -11,6 +11,8 @@
                     <property name="cacheMode" value="PARTITIONED"/>
                     <property name="atomicityMode" value="ATOMIC"/>
                     <property name="copyOnRead" value="true"/>
+                    <!-- Will work with default cache also. Added just for debugging in H2 console. -->
+                    <property name="name" value="qrtz"/>
 
                     <property name="queryEntities">
                         <list>
@@ -240,7 +242,7 @@
                                         <entry key="isNonconcurrent" value="java.lang.String"/>
                                         <entry key="isUpdateData" value="java.lang.String"/>
                                         <entry key="requestsRecovery" value="java.lang.String"/>
-                                        <entry key="jobData" value="java.lang.Object"/>
+                                        <entry key="jobData" value="[B"/>
                                     </map>
                                 </property>
 
@@ -282,22 +284,15 @@
 
                                 <property name="keyFields">
                                     <set>
-                                        <value>schedName</value>
-                                        <value>lockName</value>
+                                        <value>SCHED_NAME</value>
+                                        <value>LOCK_NAME</value>
                                     </set>
                                 </property>
 
                                 <property name="fields">
                                     <map>
-                                        <entry key="schedName" value="java.lang.String"/>
-                                        <entry key="lockName" value="java.lang.String"/>
-                                    </map>
-                                </property>
-
-                                <property name="aliases">
-                                    <map>
-                                        <entry key="schedName" value="SCHED_NAME"/>
-                                        <entry key="lockName" value="LOCK_NAME"/>
+                                        <entry key="SCHED_NAME" value="java.lang.String"/>
+                                        <entry key="LOCK_NAME" value="java.lang.String"/>
                                     </map>
                                 </property>
 
@@ -309,8 +304,8 @@
 
                                             <property name="fields">
                                                 <map>
-                                                    <entry key="lockName" value="true"/>
-                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="LOCK_NAME" value="true"/>
+                                                    <entry key="SCHED_NAME" value="true"/>
                                                 </map>
                                             </property>
                                         </bean>
@@ -627,5 +622,6 @@
                 </property>
             </bean>
         </property>
+
     </bean>
 </beans>
