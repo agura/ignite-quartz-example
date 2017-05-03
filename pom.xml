@@ -12,25 +12,26 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <ignite.version>1.8.5</ignite.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-core</artifactId>
-            <version>1.8.5</version>
+            <version>${ignite.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-spring</artifactId>
-            <version>1.8.5</version>
+            <version>${ignite.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-indexing</artifactId>
-            <version>1.8.5</version>
+            <version>${ignite.version}</version>
         </dependency>
 
         <dependency>
