@@ -225,38 +225,24 @@
 
                                 <property name="keyFields">
                                     <set>
-                                        <value>schedName</value>
-                                        <value>jobName</value>
-                                        <value>jobGroup</value>
+                                        <value>SCHED_NAME</value>
+                                        <value>JOB_NAME</value>
+                                        <value>JOB_GROUP</value>
                                     </set>
                                 </property>
 
                                 <property name="fields">
                                     <map>
-                                        <entry key="schedName" value="java.lang.String"/>
-                                        <entry key="jobName" value="java.lang.String"/>
-                                        <entry key="jobGroup" value="java.lang.String"/>
-                                        <entry key="description" value="java.lang.String"/>
-                                        <entry key="jobClassName" value="java.lang.String"/>
-                                        <entry key="isDurable" value="java.lang.String"/>
-                                        <entry key="isNonconcurrent" value="java.lang.String"/>
-                                        <entry key="isUpdateData" value="java.lang.String"/>
-                                        <entry key="requestsRecovery" value="java.lang.String"/>
-                                        <entry key="jobData" value="[B"/>
-                                    </map>
-                                </property>
-
-                                <property name="aliases">
-                                    <map>
-                                        <entry key="schedName" value="SCHED_NAME"/>
-                                        <entry key="jobName" value="JOB_NAME"/>
-                                        <entry key="jobGroup" value="JOB_GROUP"/>
-                                        <entry key="jobClassName" value="JOB_CLASS_NAME"/>
-                                        <entry key="isDurable" value="IS_DURABLE"/>
-                                        <entry key="isNonconcurrent" value="IS_NONCONCURRENT"/>
-                                        <entry key="isUpdateData" value="IS_UPDATE_DATA"/>
-                                        <entry key="requestsRecovery" value="REQUESTS_RECOVERY"/>
-                                        <entry key="jobData" value="JOB_DATA"/>
+                                        <entry key="SCHED_NAME" value="java.lang.String"/>
+                                        <entry key="JOB_NAME" value="java.lang.String"/>
+                                        <entry key="JOB_GROUP" value="java.lang.String"/>
+                                        <entry key="DESCRIPTION" value="java.lang.String"/>
+                                        <entry key="JOB_CLASS_NAME" value="java.lang.String"/>
+                                        <entry key="IS_DURABLE" value="java.lang.Boolean"/>
+                                        <entry key="IS_NONCONCURRENT" value="java.lang.String"/>
+                                        <entry key="IS_UPDATE_DATA" value="java.lang.String"/>
+                                        <entry key="REQUESTS_RECOVERY" value="java.lang.Boolean"/>
+                                        <entry key="JOB_DATA" value="[B"/>
                                     </map>
                                 </property>
 
@@ -268,9 +254,9 @@
 
                                             <property name="fields">
                                                 <map>
-                                                    <entry key="jobGroup" value="true"/>
-                                                    <entry key="schedName" value="true"/>
-                                                    <entry key="jobName" value="true"/>
+                                                    <entry key="JOB_GROUP" value="true"/>
+                                                    <entry key="SCHED_NAME" value="true"/>
+                                                    <entry key="JOB_NAME" value="true"/>
                                                 </map>
                                             </property>
                                         </bean>
@@ -361,26 +347,17 @@
 
                                 <property name="keyFields">
                                     <set>
-                                        <value>schedName</value>
-                                        <value>instanceName</value>
+                                        <value>SCHED_NAME</value>
+                                        <value>INSTANCE_NAME</value>
                                     </set>
                                 </property>
 
                                 <property name="fields">
                                     <map>
-                                        <entry key="schedName" value="java.lang.String"/>
-                                        <entry key="instanceName" value="java.lang.String"/>
-                                        <entry key="lastCheckinTime" value="java.lang.Long"/>
-                                        <entry key="checkinInterval" value="java.lang.Long"/>
-                                    </map>
-                                </property>
-
-                                <property name="aliases">
-                                    <map>
-                                        <entry key="schedName" value="SCHED_NAME"/>
-                                        <entry key="instanceName" value="INSTANCE_NAME"/>
-                                        <entry key="lastCheckinTime" value="LAST_CHECKIN_TIME"/>
-                                        <entry key="checkinInterval" value="CHECKIN_INTERVAL"/>
+                                        <entry key="SCHED_NAME" value="java.lang.String"/>
+                                        <entry key="INSTANCE_NAME" value="java.lang.String"/>
+                                        <entry key="LAST_CHECKIN_TIME" value="java.lang.Long"/>
+                                        <entry key="CHECKIN_INTERVAL" value="java.lang.Long"/>
                                     </map>
                                 </property>
 
@@ -392,8 +369,8 @@
 
                                             <property name="fields">
                                                 <map>
-                                                    <entry key="instanceName" value="true"/>
-                                                    <entry key="schedName" value="true"/>
+                                                    <entry key="INSTANCE_NAME" value="true"/>
+                                                    <entry key="SCHED_NAME" value="true"/>
                                                 </map>
                                             </property>
                                         </bean>
@@ -407,31 +384,20 @@
 
                                 <property name="keyFields">
                                     <set>
-                                        <value>schedName</value>
-                                        <value>triggerName</value>
-                                        <value>triggerGroup</value>
+                                        <value>SCHED_NAME</value>
+                                        <value>TRIGGER_NAME</value>
+                                        <value>TRIGGER_GROUP</value>
                                     </set>
                                 </property>
 
                                 <property name="fields">
                                     <map>
-                                        <entry key="schedName" value="java.lang.String"/>
-                                        <entry key="triggerName" value="java.lang.String"/>
-                                        <entry key="triggerGroup" value="java.lang.String"/>
-                                        <entry key="repeatCount" value="java.lang.Long"/>
-                                        <entry key="repeatInterval" value="java.lang.Long"/>
-                                        <entry key="timesTriggered" value="java.lang.Long"/>
-                                    </map>
-                                </property>
-
-                                <property name="aliases">
-                                    <map>
-                                        <entry key="schedName" value="SCHED_NAME"/>
-                                        <entry key="triggerName" value="TRIGGER_NAME"/>
-                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
-                                        <entry key="repeatCount" value="REPEAT_COUNT"/>
-                                        <entry key="repeatInterval" value="REPEAT_INTERVAL"/>
-                                        <entry key="timesTriggered" value="TIMES_TRIGGERED"/>
+                                        <entry key="SCHED_NAME" value="java.lang.String"/>
+                                        <entry key="TRIGGER_NAME" value="java.lang.String"/>
+                                        <entry key="TRIGGER_GROUP" value="java.lang.String"/>
+                                        <entry key="REPEAT_COUNT" value="java.lang.Integer"/>
+                                        <entry key="REPEAT_INTERVAL" value="java.lang.Long"/>
+                                        <entry key="TIMES_TRIGGERED" value="java.lang.Integer"/>
                                     </map>
                                 </property>
 
@@ -443,9 +409,9 @@
 
                                             <property name="fields">
                                                 <map>
-                                                    <entry key="schedName" value="true"/>
-                                                    <entry key="triggerName" value="true"/>
-                                                    <entry key="triggerGroup" value="true"/>
+                                                    <entry key="SCHED_NAME" value="true"/>
+                                                    <entry key="TRIGGER_NAME" value="true"/>
+                                                    <entry key="TRIGGER_GROUP" value="true"/>
                                                 </map>
                                             </property>
                                         </bean>
@@ -527,49 +493,31 @@
 
                                 <property name="keyFields">
                                     <set>
-                                        <value>schedName</value>
-                                        <value>triggerName</value>
-                                        <value>triggerGroup</value>
+                                        <value>SCHED_NAME</value>
+                                        <value>TRIGGER_NAME</value>
+                                        <value>TRIGGER_GROUP</value>
                                     </set>
                                 </property>
 
                                 <property name="fields">
                                     <map>
-                                        <entry key="schedName" value="java.lang.String"/>
-                                        <entry key="triggerName" value="java.lang.String"/>
-                                        <entry key="triggerGroup" value="java.lang.String"/>
-                                        <entry key="jobName" value="java.lang.String"/>
-                                        <entry key="jobGroup" value="java.lang.String"/>
-                                        <entry key="description" value="java.lang.String"/>
-                                        <entry key="nextFireTime" value="java.lang.Long"/>
-                                        <entry key="prevFireTime" value="java.lang.Long"/>
-                                        <entry key="priority" value="java.lang.Integer"/>
-                                        <entry key="triggerState" value="java.lang.String"/>
-                                        <entry key="triggerType" value="java.lang.String"/>
-                                        <entry key="startTime" value="java.lang.Long"/>
-                                        <entry key="endTime" value="java.lang.Long"/>
-                                        <entry key="calendarName" value="java.lang.String"/>
-                                        <entry key="misfireInstr" value="java.lang.Short"/>
-                                        <entry key="jobData" value="java.lang.Object"/>
-                                    </map>
-                                </property>
-
-                                <property name="aliases">
-                                    <map>
-                                        <entry key="schedName" value="SCHED_NAME"/>
-                                        <entry key="triggerName" value="TRIGGER_NAME"/>
-                                        <entry key="triggerGroup" value="TRIGGER_GROUP"/>
-                                        <entry key="jobName" value="JOB_NAME"/>
-                                        <entry key="jobGroup" value="JOB_GROUP"/>
-                                        <entry key="nextFireTime" value="NEXT_FIRE_TIME"/>
-                                        <entry key="prevFireTime" value="PREV_FIRE_TIME"/>
-                                        <entry key="triggerState" value="TRIGGER_STATE"/>
-                                        <entry key="triggerType" value="TRIGGER_TYPE"/>
-                                        <entry key="startTime" value="START_TIME"/>
-                                        <entry key="endTime" value="END_TIME"/>
-                                        <entry key="calendarName" value="CALENDAR_NAME"/>
-                                        <entry key="misfireInstr" value="MISFIRE_INSTR"/>
-                                        <entry key="jobData" value="JOB_DATA"/>
+                                        <entry key="SCHED_NAME" value="java.lang.String"/>
+                                        <entry key="TRIGGER_NAME" value="java.lang.String"/>
+                                        <entry key="TRIGGER_GROUP" value="java.lang.String"/>
+                                        <entry key="JOB_NAME" value="java.lang.String"/>
+                                        <entry key="JOB_GROUP" value="java.lang.String"/>
+                                        <entry key="DESCRIPTION" value="java.lang.String"/>
+                                        <entry key="NEXT_FIRE_TIME" value="java.lang.Long"/>
+                                        <entry key="PREV_FIRE_TIME" value="java.lang.Long"/>
+                                        <entry key="PRIORITY" value="java.lang.Integer"/>
+                                        <entry key="TRIGGER_STATE" value="java.lang.String"/>
+                                        <entry key="TRIGGER_TYPE" value="java.lang.String"/>
+                                        <entry key="START_TIME" value="java.lang.Long"/>
+                                        <entry key="END_TIME" value="java.lang.Long"/>
+                                        <entry key="CALENDAR_NAME" value="java.lang.String"/>
+                                        <entry key="MISFIRE_INSTR" value="java.lang.Integer"/>
+                                        <!--<entry key="JOB_DATA" value="java.lang.Object"/>-->
+                                        <entry key="JOB_DATA" value="[B"/>
                                     </map>
                                 </property>
 
@@ -581,9 +529,9 @@
 
                                             <property name="fields">
                                                 <map>
-                                                    <entry key="schedName" value="true"/>
-                                                    <entry key="triggerName" value="true"/>
-                                                    <entry key="triggerGroup" value="true"/>
+                                                    <entry key="SCHED_NAME" value="true"/>
+                                                    <entry key="TRIGGER_NAME" value="true"/>
+                                                    <entry key="TRIGGER_GROUP" value="true"/>
                                                 </map>
                                             </property>
                                         </bean>
@@ -594,9 +542,9 @@
 
                                             <property name="fields">
                                                 <map>
-                                                    <entry key="jobGroup" value="true"/>
-                                                    <entry key="schedName" value="true"/>
-                                                    <entry key="jobName" value="true"/>
+                                                    <entry key="JOB_GROUP" value="true"/>
+                                                    <entry key="SCHED_NAME" value="true"/>
+                                                    <entry key="JOB_NAME" value="true"/>
                                                 </map>
                                             </property>
                                         </bean>
